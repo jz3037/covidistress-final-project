@@ -3,6 +3,7 @@ import numpy as np
 import os 
 
 dir = '/Users/jamiezhang/Desktop/COVIDiSTRESS/'
+
 new_cols = [
     'gender', 
     'marital_status', 
@@ -68,37 +69,7 @@ def compute_scores(dfs):
         scored_df['sps_composite'] = sps_composite
 
         scored_dfs.append(scored_df) 
-
     return scored_dfs
-
-def correlation(dfs, months):
-    print("Correlations\n")
-    for i, df in enumerate(dfs): 
-        pss_composite = df.loc[:, 'pss10_composite']
-        lon_composite = df.loc[:, 'lon_composite']
-        sps_composite = df.loc[:, 'sps_composite']
-        pss_lon, p_pl = pearsonr(pss_composite, lon_composite)
-        lon_sps, p_ls = pearsonr(lon_composite, sps_composite)
-        pss_sps, p_ps = pearsonr(pss_composite, sps_composite)
-        print(f"Month: {months[i]}")
-        print(f"    Stress & Loneliness Corr: {pss_lon: .4f}, p_value: {p_pl: .4f}")
-        print(f"    Loneliness & Social Support Corr: {lon_sps: .4f}, p_value: {p_ls: .4f}")
-        print(f"    Stress & Social Support Corr: {pss_sps: .4f}, p_value: {p_ps: .4f}")
-
-def summmary_stats(dfs, months):
-    print("Summary Statistics\n")
-    for i, df in enumerate(dfs):
-        marital_status = df.loc[:, 'marital_status'].describe()
-        gender = df.loc[:, 'gender'].describe()
-        pss_composite = df.loc[:, 'pss10_composite'].describe()
-        lon_composite = df.loc[:, 'lon_composite'].describe()
-        sps_composite = df.loc[:, 'sps_composite'].describe()
-        print(f"Month: {months[i]}\n")
-        print(f"Marital Status Summary:\n {marital_status}\n")
-        print(f"Gender:\n {gender}\n")
-        print(f"Stress:\n {pss_composite}\n")
-        print(f"Loneliness:\n {lon_composite}\n")
-        print(f"Social Support:\n {sps_composite}\n")
 
 def main():
     dfs = []
@@ -120,15 +91,7 @@ def main():
 
     # Create csv files
     for i, df in enumerate(composite_dfs): 
-        df.to_csv('clean_' + names[i])
-
-    # Print summary statistics
-    summmary_stats(composite_dfs, months)
-
-    # Calculate & plot correlation between dependent variables
-    #correlation(composite_dfs, months)
-
-   
+        df.to_csv('clean_' + names[i])   
       
 if __name__ == '__main__':
     main()
