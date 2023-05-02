@@ -4,9 +4,9 @@
 
 **covidistress_cleaning.py**: generates clean data files (with composite scores)
 
-**April.csv, May.csv, June.csv: "raw" data files from OSF
+**April.csv, May.csv, June.csv**: "raw" data files from OSF
 
-**clean_April.csv, clean_May.csv, clean_June.csv: clean data files
+**clean_April.csv, clean_May.csv, clean_June.csv**: clean data files
 
 **plots.ipynb**: figures
 
