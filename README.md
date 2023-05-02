@@ -8,4 +8,4 @@
 
 **tests.ipynb**: all statistical tests (Pearson correlation, MANOVA, ANOVA, Tukey's HSD)
 
-**figures: figures & tables used in final paper
+**figures**: figures & tables used in final paper
