@@ -2,25 +2,22 @@ import pandas as pd
 import numpy as np
 import os 
 
+# Change as needed
 dir = '/Users/jamiezhang/Desktop/COVIDiSTRESS/'
 
-new_cols = [
-    'gender', 
-    'marital_status', 
+new_cols = ['marital_status', 
     *[f"pss10_{i}" for i in range(1,11)], 
     *[f"lon_{i}" for i in range(1,4)], 
     *[f"sps_{i}" for i in range(1,11)]
     ]
 
-old_cols = ['Dem_gender', 
-            'Dem_maritalstatus', 
+old_cols = ['Dem_maritalstatus', 
             *[f"Scale_PSS10_UCLA_{i}" for i in range(1, 11)], 
             *[f"Scale_SLON_{i}" for i in range(1,4)], 
             *[f"SPS_{i}" for i in range(1,11)]
             ]
 
-old_cols_april = ['Dem_gender', 
-            'Dem_maritalstatus', 
+old_cols_april = ['Dem_maritalstatus', 
             *[f"Scale_PSS10_UCLA_{i}" for i in range(1, 11)], 
             *[f"Scale_Lon_{i}" for i in range(1,4)], 
             *[f"SPS_{i}" for i in range(1,11)]
